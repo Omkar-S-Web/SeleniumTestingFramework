@@ -4,78 +4,105 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions; 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NaukriLoginPage {
-	
-	
-    //Private field to store the driver
-    private WebDriver driver;
-    
-    // Login Button that opens the form
-    public static final By LOGIN_BUTTON_LAYER = By.id("login_Layer");
 
-    // Username field inside the form
-    public static final By USERNAME_FIELD = By.xpath("//input[@placeholder='Enter your active Email ID / Username']");
+    private WebDriver driver;
+    private WebDriverWait wait;
     
-    // Password field inside the form
-    public static final By PASSWORD_FIELD = By.xpath("//input[@placeholder='Enter your password']");
+    // --- LOCATORS ---
     
-    // Login submit button inside the form
-    public static final By SUBMIT_BUTTON = By.cssSelector(".btn-primary.loginButton");
+    // Login Layer/Button (On the main page)
+    // CRITICAL UPDATE: Using XPath targeting the text, which is more stable than the dynamic ID "login_Layer".
+    private final By loginLayerButton = By.xpath("//a[contains(text(), 'Login')]");
+
+    // Login Form Fields (Inside the modal)
+    private final By usernameField = By.xpath("//input[@placeholder='Enter your active Email ID / Username']");
+    private final By passwordField = By.xpath("//input[@placeholder='Enter your password']");
+    private final By submitButton = By.cssSelector(".btn-primary.loginButton");
     
-    // The profile name on the dashboard (Verification element)
-    public static final By PROFILE_NAME_HEADING = By.className("info__heading"); 
+    // Elements after Successful Login
+    private final By profileNameHeading = By.className("info__heading"); 
+    private final By profileViewLink = By.cssSelector("a[href*='/mnjuser/profile']");
     
-    //The profile link open
-    public static final By PROFILE_VIEW_LINK = By.cssSelector("a[href*='/mnjuser/profile']");
-    
-    // Constructor to initialize the driver field
+    // Logout Locators
+    private final By profileIcon = By.className("nI-gNb-icon-img"); 
+    private final By logoutLink = By.xpath("//a[@title='Logout']");   
+    // ----------------------------------------------------------------------
+    // CONSTRUCTOR
+    // ----------------------------------------------------------------------
     public NaukriLoginPage(WebDriver driver) {
     	this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
+    
+    // ----------------------------------------------------------------------
+    // ACTION METHODS
+    // ----------------------------------------------------------------------
+    
     public void clickLoginLayer() {
-    	// How do you find the element using the driver, passing in the locator variable,
-        // and then perform the click action?
-    	driver.findElement(NaukriLoginPage.LOGIN_BUTTON_LAYER).click();
+        // Updated wait: Wait for presence, then clickability, to handle page stability issues
+        wait.until(ExpectedConditions.presenceOfElementLocated(loginLayerButton));
+        wait.until(ExpectedConditions.elementToBeClickable(loginLayerButton)).click();
     }
+    
     public void login(String username, String password) {
-    	
-    	// 1. ADD THIS EXPLICIT WAIT: Wait for the username field to be ready
-        WebDriverWait loginWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        loginWait.until(ExpectedConditions.elementToBeClickable(USERNAME_FIELD));
+    	// 1. Wait for the username field to be ready
+        wait.until(ExpectedConditions.elementToBeClickable(usernameField));
         
-        // 1. Enter username
-        driver.findElement(NaukriLoginPage.USERNAME_FIELD).sendKeys(username);
-
-        // 2. Enter password
-        driver.findElement(NaukriLoginPage.PASSWORD_FIELD).sendKeys(password);
-
-        // 3. Click submit
-        driver.findElement(NaukriLoginPage.SUBMIT_BUTTON).click();
+        // 2. Enter username, password, and click submit
+        driver.findElement(usernameField).sendKeys(username);
+        driver.findElement(passwordField).sendKeys(password);
+        driver.findElement(submitButton).click();
+        
+        // 3. Wait for the login to complete and the profile icon to be present
+        // Updated wait: Use presence for profile icon for robustness
+        wait.until(ExpectedConditions.presenceOfElementLocated(profileIcon));
     }
-    // Add this method to the NaukriLoginPage class
-public String getProfileName() {
-    // 1. Initialize the Explicit Wait
-    WebDriverWait dashboardWait = new WebDriverWait(driver, Duration.ofSeconds(15));
     
-    // 2. Wait until the profile heading element becomes visible (The locator is stored as PROFILE_NAME_HEADING)
-    dashboardWait.until(ExpectedConditions.visibilityOfElementLocated(PROFILE_NAME_HEADING)); 
+    public String getProfileName() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameHeading)); 
+        return driver.findElement(profileNameHeading).getText();
+    }
     
-    // 3. Find the element and return the text for verification
-    return driver.findElement(PROFILE_NAME_HEADING).getText();
-}
-public void clickViewProfile() throws InterruptedException{
-	// 1. ADD EXPLICIT WAIT: Wait for the profile link to be clickable
-    WebDriverWait profileWait = new WebDriverWait(driver, Duration.ofSeconds(15));
-    profileWait.until(ExpectedConditions.elementToBeClickable(PROFILE_VIEW_LINK));
+    public void clickViewProfile() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(profileViewLink));
+        driver.findElement(profileViewLink).click();
+        Thread.sleep(10000); // 10-second hard wait (Not recommended, but kept as per your original file)
+    }
     
-    // 2. Click the profile link
-    driver.findElement(PROFILE_VIEW_LINK).click();
-    
-    // 3. Wait for 30 seconds, as requested (30000 milliseconds)
-    Thread.sleep(30000);
-	}
+    // ----------------------------------------------------------------------
+    // LOGOUT METHOD
+    // ----------------------------------------------------------------------
+   public void logout() {
+        // Wait for profile icon to be visible/clickable and click it to open the menu
+        wait.until(ExpectedConditions.elementToBeClickable(profileIcon)).click();
+        
+        // Hard wait to allow the complex dropdown menu to fully render.
+        try {
+            System.out.println("Waiting 5 seconds for Logout link to stabilize...");
+            Thread.sleep(5000); 
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
 
+        // Wait for the Logout link to appear and click it
+        wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
+    }
+    
+    // ----------------------------------------------------------------------
+    // LOGOUT VERIFICATION METHOD
+    // ----------------------------------------------------------------------
+    public boolean isLoginButtonDisplayed() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(loginLayerButton));
+            return driver.findElement(loginLayerButton).isDisplayed();
+        } catch (org.openqa.selenium.TimeoutException | org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
 }

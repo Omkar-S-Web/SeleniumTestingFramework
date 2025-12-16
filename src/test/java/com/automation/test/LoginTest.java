@@ -1,85 +1,108 @@
 package com.automation.test;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.automation.pages.NaukriLoginPage;
 
-public class LoginTest {
+
+// This class inherits setup (driver creation/navigation) and teardown (driver closing) from BaseTest.
+public class LoginTest extends BaseTest {
 	
-	//Declear the webdriver at class level 
-	private WebDriver driver;
-	
-	//Define the setup method
-	@BeforeMethod
-	public void setup() {
-		//Initialization and Navigation moves here!
-		
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.get("https://www.naukri.com");
+	// ----------------------------------------------------
+	// 1. DATA PROVIDER METHOD (Supplies data for the DDT test)
+	// ----------------------------------------------------
+	@DataProvider(name = "LoginData")
+	public Object[][] loginTestData() {
+	    // Defines the data: 3 columns (Username, Password, Expected Name)
+	    Object[][] data = new Object[][] {
+	        // Run 1 (Successful Login)
+	        {"sawantomkar173@gmail.com", "Bruno@123", "Omkar Dattatray Sawant"}, 
+	        
+	        // Run 2 (Example for failure testing/second user)
+	        {"invalid@example.com", "wrongpassword", "Expected User Name"}, 
+	    };
+	    
+	    return data;
 	}
-	@AfterMethod
-    public void teardown() {
-        driver.quit();
-    }
 	
-	@Test
-	public void verifySuccessfulLogin() {
+	// ----------------------------------------------------
+	// 2. DATA-DRIVEN LOGIN TEST
+	// ----------------------------------------------------
+	@Test(dataProvider = "LoginData")
+	public void verifySuccessfulLoginDDT(String username, String password, String expectedName) {
 		
-		// 2. Instantiate the Page Object
-		// This passes the driver control to the page object class
-		NaukriLoginPage loginPage = new NaukriLoginPage(driver);
+		// 'driver' is inherited from BaseTest
+		NaukriLoginPage loginPage = new NaukriLoginPage(driver); 
 		
-		// 3. Perform Actions using the clean, reusable methods
+		// 1. Perform Actions using the clean, reusable methods
 		loginPage.clickLoginLayer();
-		loginPage.login("sawantomkar173@gmail.com", "Bruno@123");
+		loginPage.login(username, password);
 		
-		// 4. Verification (The getProfileName() method handles the wait internally)
+		// 2. Verification 
 		String actualProfileName = loginPage.getProfileName();
 		
-		// 5. Assert the result
-		Assert.assertEquals(actualProfileName, "Omkar Dattatray Sawant");
-
+		// 3. Assert the result
+		Assert.assertEquals(actualProfileName, expectedName, "Login Assertion Failed for user: " + username); 
 	}
+    
+	// ----------------------------------------------------
+	// 3. LOGOUT TEST CASE (LGN-004)
+	// ----------------------------------------------------
+	@Test
+	public void verifyLogoutAndRedirection() {
+	 	
+	 	NaukriLoginPage loginPage = new NaukriLoginPage(driver);
+	 	
+	 	// Prerequisite: Login successfully first
+	 	loginPage.clickLoginLayer();
+	 	loginPage.login("sawantomkar173@gmail.com", "Bruno@123"); 
+	 	
+	 	// 1. Perform Logout Action (This method needs to be added to NaukriLoginPage)
+        // This will typically involve hovering over the profile icon and clicking 'Logout'.
+	 	loginPage.logout();
+	 	
+	 	// 2. Verification: Check if the application redirects back to the public homepage 
+        // by checking for an element unique to the non-logged-in state, like the "Login" button.
+        boolean isLoginButtonPresent = loginPage.isLoginButtonDisplayed();
+        
+        Assert.assertTrue(isLoginButtonPresent, "Logout failed or redirection to homepage did not occur.");
+	}
+
+	// ----------------------------------------------------
+	// 4. Other existing tests
+	// ----------------------------------------------------
+	
 	@Test
 	public void verifyProfileHeadingIsVisible() {
 		
-		// 2. Instantiate the Page Object
-		// This passes the driver control to the page object class
 		NaukriLoginPage loginPage = new NaukriLoginPage(driver);
 		
-		// 3. Perform Actions using the clean, reusable methods
+		// Prerequisite Login
 		loginPage.clickLoginLayer();
 		loginPage.login("sawantomkar173@gmail.com", "Bruno@123");
 		
-		// 4. Verification (The getProfileName() method handles the wait internally)
+		// Verification
 		String actualProfileName = loginPage.getProfileName();
 		
-		// 5. Assert the result
+		// Assert the result
 		Assert.assertNotNull(actualProfileName, "Omkar Dattatray Sawant");
 
 	}
+	
 	@Test
 	public void verifyProfileLinkClickAndPause() throws InterruptedException {
-	    
-	    // 1. Instantiate the Page Object (Required for every test)
-	    NaukriLoginPage loginPage = new NaukriLoginPage(driver);
-	    
-	    // 2. Perform Login Actions (Prerequisite for the operation)
-	    loginPage.clickLoginLayer();
-	    loginPage.login("sawantomkar173@gmail.com", "Bruno@123");
-	    
-	    // 3. Perform the new operation (Click link and pause 30 sec)
-	    System.out.println("Starting 30 second pause on Profile Page...");
-	    loginPage.clickViewProfile();
-	    System.out.println("...30 second pause complete. Test finished.");
-
-	    // Optional Assertion: Add a simple check here if needed, 
-	    // but the test primarily verifies the click and wait.
+	 	
+	 	NaukriLoginPage loginPage = new NaukriLoginPage(driver);
+	 	
+	 	// Prerequisite Login
+	 	loginPage.clickLoginLayer();
+	 	loginPage.login("sawantomkar173@gmail.com", "Bruno@123");
+	 	
+	 	// Perform the action under test
+	 	System.out.println("Starting 30 second pause on Profile Page...");
+	 	loginPage.clickViewProfile();
+	 	System.out.println("...30 second pause complete. Test finished.");
 	}
 }
