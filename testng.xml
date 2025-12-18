@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Naukri DDT Suite">
+    <test name="Login Functionality Tests">
+        <parameter name="browser" value="Chrome"/> 
 
-<suite name="Naukri_Regression_Suite">
-    
-    <parameter name="browser" value="Chrome"/> 
-    
-    <test name="Naukri_Functional_Tests">
         <classes>
-            <class name="com.automation.test.LoginTest"/>
+            <class name="com.automation.test.LoginTest" /> 
             
-            <class name="com.automation.test.JobSearchTest"/> 
+            <class name="com.automation.test.JobSearchTest"/>
+            <class name="com.automation.test.FirstTest"/>
         </classes>
     </test>
-    
 </suite>
