@@ -8,46 +8,15 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Naukri_Regression_Suite</th></tr>
-<tr><td><a href="#t0">Naukri_Functional_Tests</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">111,415</td><td></td><td></td></tr>
+<tr><th colspan="8">Naukri DDT Suite</th></tr>
+<tr><td><a href="#t0">Login Functionality Tests</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">81,610</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Naukri_Regression_Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Naukri_Functional_Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.automation.test.LoginTest</td><td><a href="#m0">verifySuccessfulLoginDDT</a></td><td rowspan="1">1765864960292</td><td rowspan="1">16625</td></tr><tr><th colspan="4">Naukri_Functional_Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.automation.test.JobSearchTest</td><td><a href="#m1">verifyAdvancedSearchForQAInPune</a></td><td rowspan="1">1765864983941</td><td rowspan="1">9815</td></tr><tr class="passedodd"><td rowspan="4">com.automation.test.LoginTest</td><td><a href="#m2">verifyLogoutAndRedirection</a></td><td rowspan="1">1765864892612</td><td rowspan="1">13345</td></tr><tr class="passedodd"><td><a href="#m3">verifyProfileHeadingIsVisible</a></td><td rowspan="1">1765864913820</td><td rowspan="1">4542</td></tr><tr class="passedodd"><td><a href="#m4">verifyProfileLinkClickAndPause</a></td><td rowspan="1">1765864925161</td><td rowspan="1">15950</td></tr><tr class="passedodd"><td><a href="#m5">verifySuccessfulLoginDDT</a></td><td rowspan="1">1765864948610</td><td rowspan="1">5124</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Naukri DDT Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Login Functionality Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.automation.test.FirstTest</td><td><a href="#m0">verifyTestNGisWorking</a></td><td rowspan="1">1766066529292</td><td rowspan="1">5</td></tr><tr class="passedodd"><td rowspan="1">com.automation.test.JobSearchTest</td><td><a href="#m1">verifyAdvancedSearchForQAInPune</a></td><td rowspan="1">1766066520316</td><td rowspan="1">8507</td></tr><tr class="passedeven"><td rowspan="3">com.automation.test.LoginTest</td><td><a href="#m2">verifyLogin</a></td><td rowspan="3">1766066496107</td><td rowspan="3">17397</td></tr><tr class="passedeven"><td><a href="#m3">verifyLogin</a></td></tr><tr class="passedeven"><td><a href="#m4">verifyLogin</a></td></tr></tbody>
 </table>
-<h2>Naukri_Functional_Tests</h2><h3 id="m0">com.automation.test.LoginTest#verifySuccessfulLoginDDT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>invalid@example.com</td><td>wrongpassword</td><td>Expected User Name</td></tr><tr><th colspan="3">Exception</th></tr><tr><td colspan="3"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.className: nI-gNb-icon-img (tried for 15 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
-	at com.automation.pages.NaukriLoginPage.login(NaukriLoginPage.java:64)
-	at com.automation.test.LoginTest.verifySuccessfulLoginDDT(LoginTest.java:41)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.nI\-gNb\-icon\-img&quot;}
-  (Session info: chrome=143.0.7499.110)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e3c2619f865bbe7399d3e664626249b8, findElement {using=class name, value=nI-gNb-icon-img}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.110, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\Shree\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57087}, goog:processID: 6812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57087/devtoo..., se:cdpVersion: 143.0.7499.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e3c2619f865bbe7399d3e664626249b8
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:204)
-	... 28 more
-... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Login Functionality Tests</h2><h3 id="m0">com.automation.test.FirstTest#verifyTestNGisWorking</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m1">com.automation.test.JobSearchTest#verifyAdvancedSearchForQAInPune</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.automation.test.LoginTest#verifyLogoutAndRedirection</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.automation.test.LoginTest#verifyProfileHeadingIsVisible</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.automation.test.LoginTest#verifyProfileLinkClickAndPause</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.automation.test.LoginTest#verifySuccessfulLoginDDT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>sawantomkar173@gmail.com</td><td>Bruno@123</td><td>Omkar Dattatray Sawant</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;user2@test.com</td><td>password</td><td>Failure&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;sawantomkar173@gmail.com</td><td>Bruno@123</td><td>Success&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;invalid@email.com</td><td>wrongpass</td><td>Failure&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
