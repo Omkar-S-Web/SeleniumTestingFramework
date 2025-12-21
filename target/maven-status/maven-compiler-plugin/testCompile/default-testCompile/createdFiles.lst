@@ -1,4 +1,10 @@
+com\automation\utils\ScreenshotUtils.class
+com\automation\pages\NaukriSearchPage.class
+com\automation\test\BaseTest.class
+com\automation\test\JobSearchTest.class
 com\automation\pages\NaukriLoginPage.class
 com\automation\test\FirstSeleniumTest.class
+com\automation\utils\ExtentManager.class
 com\automation\test\FirstTest.class
+com\automation\utils\ExtentListener.class
 com\automation\test\LoginTest.class
