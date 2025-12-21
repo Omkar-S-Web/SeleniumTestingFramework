@@ -2,23 +2,16 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-18T06:00:47 GMT-08:00" name="Naukri DDT Suite" finished-at="2025-12-18T06:02:09 GMT-08:00" duration-ms="81610">
+  <suite started-at="2025-12-21T00:20:13 GMT-08:00" name="Naukri DDT Suite" finished-at="2025-12-21T00:21:29 GMT-08:00" duration-ms="76411">
     <groups>
     </groups>
-    <test started-at="2025-12-18T06:00:47 GMT-08:00" name="Login Functionality Tests" finished-at="2025-12-18T06:02:09 GMT-08:00" duration-ms="81610">
+    <test started-at="2025-12-21T00:20:13 GMT-08:00" name="Login Functionality Tests" finished-at="2025-12-21T00:21:29 GMT-08:00" duration-ms="76411">
       <class name="com.automation.test.LoginTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:00:47 GMT-08:00" name="setup" finished-at="2025-12-18T06:00:57 GMT-08:00" duration-ms="9499" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Chrome]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:13 GMT-08:00" name="setup" finished-at="2025-12-21T00:20:21 GMT-08:00" duration-ms="7952" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:00:57 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-18T06:01:04 GMT-08:00" duration-ms="7598" status="PASS">
+        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:21 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-21T00:20:28 GMT-08:00" duration-ms="6484" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,22 +32,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:04 GMT-08:00" name="teardown" finished-at="2025-12-18T06:01:05 GMT-08:00" duration-ms="395" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:05 GMT-08:00" name="setup" finished-at="2025-12-18T06:01:11 GMT-08:00" duration-ms="6497" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:28 GMT-08:00" name="tearDown" finished-at="2025-12-21T00:20:28 GMT-08:00" duration-ms="224" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Chrome]]>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:28 GMT-08:00" name="setup" finished-at="2025-12-21T00:20:35 GMT-08:00" duration-ms="7144" status="PASS">
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:11 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-18T06:01:28 GMT-08:00" duration-ms="17240" status="PASS">
+        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:35 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-21T00:20:52 GMT-08:00" duration-ms="17129" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -75,22 +68,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:29 GMT-08:00" name="teardown" finished-at="2025-12-18T06:01:29 GMT-08:00" duration-ms="365" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:29 GMT-08:00" name="setup" finished-at="2025-12-18T06:01:36 GMT-08:00" duration-ms="6736" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:52 GMT-08:00" name="tearDown" finished-at="2025-12-21T00:20:52 GMT-08:00" duration-ms="255" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Chrome]]>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:52 GMT-08:00" name="setup" finished-at="2025-12-21T00:20:58 GMT-08:00" duration-ms="5814" status="PASS">
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:36 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-18T06:01:53 GMT-08:00" duration-ms="17397" status="PASS">
+        <test-method signature="verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:20:58 GMT-08:00" name="verifyLogin" data-provider="loginData" finished-at="2025-12-21T00:21:15 GMT-08:00" duration-ms="17135" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -111,37 +104,44 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automation.test.LoginTest@49e53c76]" started-at="2025-12-18T06:01:53 GMT-08:00" name="teardown" finished-at="2025-12-18T06:01:53 GMT-08:00" duration-ms="368" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.automation.test.LoginTest -->
-      <class name="com.automation.test.FirstTest">
-        <test-method signature="verifyTestNGisWorking()[pri:0, instance:com.automation.test.FirstTest@2b71e916]" started-at="2025-12-18T06:02:09 GMT-08:00" name="verifyTestNGisWorking" finished-at="2025-12-18T06:02:09 GMT-08:00" duration-ms="5" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyTestNGisWorking -->
-      </class> <!-- com.automation.test.FirstTest -->
-      <class name="com.automation.test.JobSearchTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.automation.test.JobSearchTest@411f53a0]" started-at="2025-12-18T06:01:53 GMT-08:00" name="setup" finished-at="2025-12-18T06:02:00 GMT-08:00" duration-ms="6431" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.test.LoginTest@57db2b13]" started-at="2025-12-21T00:21:15 GMT-08:00" name="tearDown" finished-at="2025-12-21T00:21:15 GMT-08:00" duration-ms="238" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Chrome]]>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=LoginTest.verifyLogin(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.automation.test.LoginTest@57db2b13] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.automation.test.LoginTest -->
+      <class name="com.automation.test.FirstTest">
+        <test-method signature="verifyTestNGisWorking()[pri:0, instance:com.automation.test.FirstTest@13d73f29]" started-at="2025-12-21T00:21:29 GMT-08:00" name="verifyTestNGisWorking" finished-at="2025-12-21T00:21:29 GMT-08:00" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTestNGisWorking -->
+      </class> <!-- com.automation.test.FirstTest -->
+      <class name="com.automation.test.JobSearchTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.test.JobSearchTest@1e16c0aa]" started-at="2025-12-21T00:21:15 GMT-08:00" name="setup" finished-at="2025-12-21T00:21:21 GMT-08:00" duration-ms="5236" status="PASS">
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyAdvancedSearchForQAInPune()[pri:1, instance:com.automation.test.JobSearchTest@411f53a0]" started-at="2025-12-18T06:02:00 GMT-08:00" name="verifyAdvancedSearchForQAInPune" finished-at="2025-12-18T06:02:08 GMT-08:00" duration-ms="8507" status="PASS">
+        <test-method signature="verifyAdvancedSearchForQAInPune()[pri:1, instance:com.automation.test.JobSearchTest@1e16c0aa]" started-at="2025-12-21T00:21:21 GMT-08:00" name="verifyAdvancedSearchForQAInPune" finished-at="2025-12-21T00:21:29 GMT-08:00" duration-ms="8311" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAdvancedSearchForQAInPune -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.automation.test.JobSearchTest@411f53a0]" started-at="2025-12-18T06:02:08 GMT-08:00" name="teardown" finished-at="2025-12-18T06:02:09 GMT-08:00" duration-ms="460" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.test.JobSearchTest@1e16c0aa]" started-at="2025-12-21T00:21:29 GMT-08:00" name="tearDown" finished-at="2025-12-21T00:21:29 GMT-08:00" duration-ms="369" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAdvancedSearchForQAInPune status=SUCCESS method=JobSearchTest.verifyAdvancedSearchForQAInPune()[pri:1, instance:com.automation.test.JobSearchTest@1e16c0aa] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
+        </test-method> <!-- tearDown -->
       </class> <!-- com.automation.test.JobSearchTest -->
     </test> <!-- Login Functionality Tests -->
   </suite> <!-- Naukri DDT Suite -->
