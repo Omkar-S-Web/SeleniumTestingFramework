@@ -33,7 +33,8 @@ public class NaukriLoginPage {
     }
     
     public void clickLoginLayer() {
-        wait.until(ExpectedConditions.elementToBeClickable(loginLayerButton)).click();
+    	// Change your current XPath to this one, which is more reliable
+    	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='login_Layer']"))).click();
     }
     
     public void login(String username, String password) {
