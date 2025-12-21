@@ -1,36 +1,30 @@
 package com.automation.utils;
 
-import java.io.File;
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentManager {
     private static ExtentReports extent;
+    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     public static ExtentReports getInstance() {
         if (extent == null) {
-            // UPDATED: Path changed to your specific D: drive folder
-            String directory = "D:/Testing report/";
-            String reportPath = directory + "NaukriTestReport.html";
-            
-            // Create the folder if it doesn't exist
-            File folder = new File(directory);
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
-
-            ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
-            
-            spark.config().setTheme(Theme.DARK);
-            spark.config().setReportName("Naukri Automation Results");
-            spark.config().setDocumentTitle("QA Execution Report");
-
+            // Use forward slashes for Windows paths in Java to avoid errors
+            ExtentSparkReporter spark = new ExtentSparkReporter("D:/Testing report/TestReport.html");
             extent = new ExtentReports();
             extent.attachReporter(spark);
-            extent.setSystemInfo("Tester", "Omkar");
-            extent.setSystemInfo("Browser", "Chrome");
         }
         return extent;
+    }
+
+    public static ExtentTest createTest(String name) {
+        ExtentTest t = getInstance().createTest(name);
+        test.set(t);
+        return t;
+    }
+    // THIS IS THE CRITICAL MISSING METHOD
+    public static ExtentTest getTest() {
+        return test.get();
     }
 }
