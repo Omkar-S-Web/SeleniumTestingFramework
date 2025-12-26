@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    
+    properties([
+        pipelineTriggers([
+            cron('H 9 * * 1-5') // Runs every weekday morning
+        ])
+    ])
 
     tools {
         // Must match the names you configured in Jenkins 'Global Tool Configuration'
