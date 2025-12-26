@@ -9,14 +9,47 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Naukri DDT Suite</th></tr>
-<tr><td><a href="#t0">Login Functionality Tests</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">75,979</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Login Functionality Tests</a></td><td class="num">4</td><td class="num">0</td><td class="num attn">2</td><td class="num">0</td><td class="num">123,349</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Naukri DDT Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Login Functionality Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.automation.test.FirstTest</td><td><a href="#m0">verifyTestNGisWorking</a></td><td rowspan="1">1766317821441</td><td rowspan="1">5</td></tr><tr class="passedodd"><td rowspan="1">com.automation.test.JobSearchTest</td><td><a href="#m1">verifyAdvancedSearchForQAInPune</a></td><td rowspan="1">1766317813142</td><td rowspan="1">8015</td></tr><tr class="passedeven"><td rowspan="3">com.automation.test.LoginTest</td><td><a href="#m2">verifyLogin</a></td><td rowspan="3">1766317767973</td><td rowspan="3">16936</td></tr><tr class="passedeven"><td><a href="#m3">verifyLogin</a></td></tr><tr class="passedeven"><td><a href="#m4">verifyLogin</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Naukri DDT Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Login Functionality Tests &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="2">com.automation.test.LoginTest</td><td><a href="#m0">verifyLogin</a></td><td rowspan="2">1766754436834</td><td rowspan="2">15132</td></tr><tr class="retriedeven"><td><a href="#m1">verifyLogin</a></td></tr><tr><th colspan="4">Login Functionality Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.automation.test.JobSearchTest</td><td><a href="#m2">verifyAdvancedSearchForQAInPune</a></td><td rowspan="1">1766754483093</td><td rowspan="1">9362</td></tr><tr class="passedodd"><td rowspan="3">com.automation.test.LoginTest</td><td><a href="#m3">verifyLogin</a></td><td rowspan="3">1766754397827</td><td rowspan="3">7157</td></tr><tr class="passedodd"><td><a href="#m4">verifyLogin</a></td></tr><tr class="passedodd"><td><a href="#m5">verifyLogin</a></td></tr></tbody>
 </table>
-<h2>Login Functionality Tests</h2><h3 id="m0">com.automation.test.FirstTest#verifyTestNGisWorking</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.automation.test.JobSearchTest#verifyAdvancedSearchForQAInPune</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;invalid@email.com</td><td>wrongpass</td><td>Failure&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Login Functionality Tests</h2><h3 id="m0">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;user2@test.com</td><td>password</td><td>Failure&quot;</td></tr><tr><th colspan="3">Exception</th></tr><tr><td colspan="3"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //a[@id=&apos;login_Layer&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Shree\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64873}, goog:processID: 14628, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64873/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0713ba15e10e1a9b2b5ea749de49a76a
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at com.automation.pages.NaukriLoginPage.clickLoginLayer(NaukriLoginPage.java:37)
+	at com.automation.test.LoginTest.verifyLogin(LoginTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;sawantomkar173@gmail.com</td><td>Bruno@123</td><td>Success&quot;</td></tr><tr><th colspan="3">Exception</th></tr><tr><td colspan="3"><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;img alt=&quot;naukri user profile img&quot; class=&quot;nI-gNb-icon-img&quot; src=&quot;https://media.naukri.com/media/jphotov1/l244%253ALukcMTmy2wURE7G0UAgEb5gwx3Qjac88g1t73KSoc8ZzDswSoEbk%252FpNgdplw&quot;&gt; is not clickable at point (1473, 37). Other element would receive the click: &lt;div class=&quot;chatbot_Nav&quot; id=&quot;_o8tq9mzydNavbar&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=143.0.7499.169)
+Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f6458e478a30490f421ad35d70447c07, clickElement {id=f.74C1A178D526E5C2D7BA75DBD28A99A4.d.FE3E88E3C29C3F36F33A7750F27C1524.e.231}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Shree\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64735}, goog:processID: 15620, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64735/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (f6458e478a30490f421ad35d70447c07)] -&gt; class name: nI-gNb-icon-img]
+Session ID: f6458e478a30490f421ad35d70447c07
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at com.automation.pages.NaukriLoginPage.logout(NaukriLoginPage.java:70)
+	at com.automation.test.LoginTest.verifyLogin(LoginTest.java:34)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.automation.test.JobSearchTest#verifyAdvancedSearchForQAInPune</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m3">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;sawantomkar173@gmail.com</td><td>Bruno@123</td><td>Success&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m4">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;user2@test.com</td><td>password</td><td>Failure&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.automation.test.LoginTest#verifyLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>&quot;invalid@email.com</td><td>wrongpass</td><td>Failure&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
