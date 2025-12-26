@@ -25,8 +25,12 @@ pipeline {
 
     post {
         always {
-            // Saves your Extent Reports even if tests fail
-            archiveArtifacts artifacts: 'target/ExtentReport/*.html', fingerprint: true
+            // 1. Copy the file from D: drive to the current Jenkins Workspace
+            // /Y suppresses prompting to confirm you want to overwrite an existing destination file.
+            bat 'xcopy "D:\\Testing report\\*.html" "%WORKSPACE%\\" /Y'
+            
+            // 2. Archive the copy that is now inside the Workspace
+            archiveArtifacts artifacts: '*.html', fingerprint: true, allowEmptyArchive: true
             
             // Saves the failure screenshots from your D: drive
             archiveArtifacts artifacts: 'D:/Testing failures SS/*.png', allowEmptyArchive: true
