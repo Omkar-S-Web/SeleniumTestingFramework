@@ -3,24 +3,17 @@
 <suite name="Failed suite [Naukri DDT Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.automation.utils.ExtentListener"/>
+    <listener class-name="com.automation.utils.RetryListener"/>
   </listeners>
   <test thread-count="5" name="Login Functionality Tests(failed)">
-    <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="com.automation.test.LoginTest">
         <methods>
-          <include name="verifyLogin" invocation-numbers="0 1 2"/>
+          <include name="verifyLogin" invocation-numbers="0 2"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.automation.test.LoginTest -->
-      <class name="com.automation.test.JobSearchTest">
-        <methods>
-          <include name="verifyAdvancedSearchForQAInPune"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.automation.test.JobSearchTest -->
     </classes>
   </test> <!-- Login Functionality Tests(failed) -->
 </suite> <!-- Failed suite [Naukri DDT Suite] -->

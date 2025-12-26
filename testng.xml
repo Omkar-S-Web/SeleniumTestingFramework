@@ -1,16 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Naukri DDT Suite">
-    <test name="Login Functionality Tests">
     <listeners>
-    <listener class-name="com.automation.utils.ExtentListener" />
+        <listener class-name="com.automation.utils.ExtentListener" />
+        <listener class-name="com.automation.utils.RetryListener" />
     </listeners>
-        <parameter name="browser" value="Chrome"/> 
-
+    
+    <test name="Login Functionality Tests">
         <classes>
-            <class name="com.automation.test.LoginTest" /> 
-            
-            <class name="com.automation.test.JobSearchTest"/>
-            <class name="com.automation.test.FirstTest"/>
+            <class name="com.automation.test.LoginTest" />
+            <class name="com.automation.test.JobSearchTest" />
+            <class name="com.automation.test.FirstTest" />
         </classes>
     </test>
 </suite>
