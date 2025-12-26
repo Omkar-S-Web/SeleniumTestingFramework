@@ -25,15 +25,16 @@ pipeline {
 
     post {
         always {
-            // 1. Copy the file from D: drive to the current Jenkins Workspace
-            // /Y suppresses prompting to confirm you want to overwrite an existing destination file.
+           // 1. Copy Report
             bat 'xcopy "D:\\Testing report\\*.html" "%WORKSPACE%\\" /Y'
+            archiveArtifacts artifacts: '*.html', allowEmptyArchive: true
             
-            // 2. Archive the copy that is now inside the Workspace
-            archiveArtifacts artifacts: '*.html', fingerprint: true, allowEmptyArchive: true
+            // 2. Copy Screenshots (if any exist)
+            // We use 'if exist' to prevent errors if there are no failures/screenshots
+            bat 'if exist "D:\\Testing failures SS\\*.png" xcopy "D:\\Testing failures SS\\*.png" "%WORKSPACE%\\screenshots\\" /Y /I'
             
-            // Saves the failure screenshots from your D: drive
-            archiveArtifacts artifacts: 'D:/Testing failures SS/*.png', allowEmptyArchive: true
+            // 3. Archive the screenshots folder from the Workspace
+            archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
         }
     }
 }
