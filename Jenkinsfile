@@ -41,6 +41,24 @@ pipeline {
             
             // 3. Archive the screenshots folder from the Workspace
             archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
-        }
+        }// These blocks now handle the emailing based on the result
+    success {
+        mail to: 'your-email@gmail.com',
+             subject: "SUCCESS: Naukri Automation - Build #${env.BUILD_NUMBER}",
+             body: "All tests passed successfully.\n\nView Report: ${env.BUILD_URL}artifact/"
+    }
+    failure {
+        mail to: 'your-email@gmail.com',
+             subject: "!!! URGENT FAILURE !!!: Naukri Automation - Build #${env.BUILD_NUMBER}",
+             body: """
+ATTENTION: The Naukri Automation suite has FAILED.
+
+Status: ${currentBuild.currentResult}
+Build Link: ${env.BUILD_URL}
+
+Check the report and screenshots here: ${env.BUILD_URL}artifact/
+"""
+    }
+}
     }
 }
