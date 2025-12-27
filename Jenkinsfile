@@ -60,5 +60,4 @@ Check the report and screenshots here: ${env.BUILD_URL}artifact/
 """
     }
 }
-    }
 }
